@@ -2,16 +2,28 @@
 <html lang="en" class="h-100">
 
 <head>    
-    <title>App$$$Name: A Coding Project by Michael Nurse</title>
+    <title>Loop de Loop: A Coding Project by Michael Nurse</title>
     
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="manifest" href="img/site.webmanifest">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">   
      <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
+     
+     <!-- Google fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+     
      <link rel="stylesheet" href="css/site.css">
 </head>
 
@@ -21,7 +33,7 @@
    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
       <div class="container-fluid">
          <img src="img/logo.png" alt="Logo" class="d-inline-block align-text-top" height="40px">
-         <a class="navbar-brand" href="#">App$$$Name</a>
+         <a class="navbar-brand pacifico-font" href="#">Loop de Loop</a>
          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
@@ -53,7 +65,42 @@
 
    <!-- ==== Main section ==== -->
    <main class="flex-shrink-0">
-      <div class="container">Container Here</div>
+      <div class="container mt-5">
+      <div class="row row-cols-1 row-cols-lg-2">
+         <div class="col-lg-4 col border-end border-2">
+               <h1 class="pacifico-font display-6">
+                  The Application
+               </h1>
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque ducimus a architecto laudantium sequi qui adipisci alias quia esse commodi? Labore voluptate sequi voluptatibus rem quod minus porro consequatur id.</p>
+               <h2>Instructions</h2>
+               <p>Enter a starting value and a ending value. Press the button to run the code.</p>
+            </div>
+         <div class="col-lg-8 col">
+            <h5>Enter Values</h5>
+            <form action="" class="row gy-2 gx-3">
+               <div class="col">
+                  <input type="number" id="startValue" class="form-control" 
+                     placeholder="Start Value" value=0 aria-label="Start Value">
+               </div>
+               <div class="col">
+                  <input type="number" id="endValue" class="form-control" 
+                  placeholder="End Value" value=100 aria-label="End Value">
+               </div>
+               <div class="col-12 d-flex justify-content-end">
+                  <button id="btnSubmit" type="button" class="tn btn-dark btn-lg">Display the Loop de Loop</button> 
+               </div>
+            </form>
+            <h2 class="mt-5 border-bottom border-2">Results</h2>
+            <div class="table-responsive">
+               <table class="table table-striped table-sm">
+                  <tbody id="results">
+                     <!-- JS Results go here -->
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+      </div>
    </main>
 
    <!-- ==== Footer section ==== -->
@@ -101,6 +148,9 @@
        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
    </script>
    <script src="js/site.js"></script>
+   <script>
+      document.getElementById("btnSubmit").addEventListener("click", getValues);
+   </script>
 
 </body>
 </html>

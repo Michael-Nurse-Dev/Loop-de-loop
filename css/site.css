@@ -27,10 +27,17 @@ h1,h2,h3,h4,h5,h6{
    color:var(--primary-color);
 }
 
+.even{font-weight: bold;}
+
 main>.container {
    padding: 60px 15px 0;
    margin-bottom: 5rem;
 }
+
+.subtitle{
+   font-size: 2rem;
+}
+
 .sticky-nav {
    position: fixed;
    left: 0;
@@ -86,5 +93,9 @@ pre[class*="language-"] {
 white-space: pre-wrap;
 word-break: break-all;
 word-wrap: break-word;
+}
+
+.pacifico-font{
+   font-family: 'Pacifico', cursive;
 }
 
