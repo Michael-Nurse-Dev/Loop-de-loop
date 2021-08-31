@@ -123,8 +123,9 @@
                            else{
                               className = "odd";         
                            }
-
-                           templateRows += `<tr><td class="${className}">${n}</td></tr>`;      
+                        
+                           templateRows += `&lt;tr>&lt;td class="${className}">${n}&lt;/td>&lt;/tr>`
+                               
                         }
 
                         // Insert the final result into the DOM.
