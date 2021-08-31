@@ -1,26 +1,30 @@
-//Keep concerns seperate
+//Let's keep concerns seperate as follows: 
+// 1. The program control(the controller).
+// 2. The domain logic and data model (the model).
+// 3. The user interface(UI or view).
 
-//Get values from the page
-//Controller layer function
+//The Controller
 function getValues(){
    let startValue = parseInt(document.getElementById("startValue").value);
    let endValue = parseInt(document.getElementById("endValue").value);
+   
    let numbers = [];
  
-
-   if (Number.isInteger(startValue) && Number.isInteger(endValue)) {      
-      //call function to generate numbers
+   if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+      
+      //Call a function to generate numbers.
       numbers = generateNumbers(startValue, endValue)
+      
+      //Call a function to display results on the website.
       displayNumbers(numbers);
    }
    else{
       alert("Please enter only integers")
    }
-
 }
 
-//Generate Numbers from the start page
-//Logic layer function(s)
+
+//Model function
 function generateNumbers(sValueParam, eValueParam){
    
    let numbers = [];
@@ -32,8 +36,7 @@ function generateNumbers(sValueParam, eValueParam){
    return numbers;
 }
 
-//Display the results
-//UI layer function
+//UI function
 function displayNumbers(numbers){
 
    let templateRows = "";
@@ -49,10 +52,9 @@ function displayNumbers(numbers){
          className = "odd";         
       }
 
-      templateRows += `<tr><td class="${className}">${n}</td></tr>`;                 
-
+      templateRows += `<tr><td class="${className}">${n}</td></tr>`;      
    }
 
+   // Insert the final result into the DOM.
    document.getElementById("results").innerHTML = templateRows;
-
 }

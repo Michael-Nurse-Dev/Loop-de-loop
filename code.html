@@ -27,7 +27,6 @@
 
      <link rel="stylesheet" href="css/site.css">
      <link rel="stylesheet" href="css/prism.css">
-
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -54,12 +53,12 @@
                   </li>
                   <li class="nav-item">
                      <!-- Link target to portfolio -->
-                     <a class="nav-link" target="_blank" href="#">About</a>
+                      <a class="nav-link" target="_blank" href="https://michaelnurse.dev">About</a>
                   </li>
                   <li class="nav-item">
-                     <!-- Link target to portfolio -->
-                     <a class="nav-link" target="_blank" href="#">Github</a>
-                  </li>
+                    <!-- Link target to portfolio -->
+                     <a class="nav-link" target="_blank" href="https://github.com/Michael-Nurse-Dev/Loop-de-loop">>Github</a>
+                 </li>
 
                </ul>
          </div>
@@ -69,22 +68,87 @@
    <!-- ==== Main section ==== -->
    <main class="flex-shrink-0">
       <div class="container py-5 px-5 mt-5">
-         <h2 class="border-1 border-bottom border-dark">The Code</h2>
-         <div class="row row-cols-1 row-cols-lg-2">
+         <h2 class="border-1 border-bottom border-dark pacifico-font display-4">The Code</h2>
+         <div class="row row-cols-1 row-cols-lg-2" id="codeContainer">
             <div class="col-lg-8">
                <pre class="line-numbers">
                   <code class="language-javascript">
-                     //Define Hello World
-                     function HelloWorld(){
-                        alert("Hello World");
+                     //Loop de Loop
+
+                     //The Controller
+                     function getValues(){
+                        let startValue = parseInt(document.getElementById("startValue").value);
+                        let endValue = parseInt(document.getElementById("endValue").value);
+                        
+                        let numbers = [];
+                     
+                        if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+                           
+                           //Call a function to generate numbers.
+                           numbers = generateNumbers(startValue, endValue)
+                           
+                           //Call a function to display results on the website.
+                           displayNumbers(numbers);
                         }
+                        else{
+                           alert("Please enter only integers")
+                        }
+                     }
+
+
+                     //Model function
+                     function generateNumbers(sValueParam, eValueParam){
+                        
+                        let numbers = [];
+
+                        for (let i = sValueParam; i <= eValueParam; i++) {
+                        numbers.push(i);      
+                        }
+
+                        return numbers;
+                     }
+
+                     //UI function
+                     function displayNumbers(numbers){
+
+                        let templateRows = "";
+
+                        for (let i = 0; i < numbers.length; i++) {
+                           let n = numbers[i];
+                           let className = "";
+
+                           if (n % 2 == 0) {
+                              className = "even";
+                           }
+                           else{
+                              className = "odd";         
+                           }
+
+                           templateRows += `<tr><td class="${className}">${n}</td></tr>`;      
+                        }
+
+                        // Insert the final result into the DOM.
+                        document.getElementById("results").innerHTML = templateRows;
+                     }
+
+                     //Event listener directly on html the page
+                     document.getElementById("btnSubmit").addEventListener("click", getValues);
                   </code>
                </pre>
             </div>
-            <div class="col-lg-4">
-                  <p>The Code is strcutured in one function.</p>
-                  <h5>Hello World</h5>
-                  <p>Hello World is a function that displays an alert with the message "Hello World"</p>
+            <div class="col-lg-4">                  
+                  <h4>Code Explanation</h4>
+                  <p>At it heart, Loop de Loop is a very simple program but on the other hand this gives us a good opportunity to focus on <strong>better presentation</strong>. After all, code is meant to be read by humans.</p>
+                  <p>We wish to keep <strong>concerns seperate</strong> as follows: <br>
+                     1. The program control(the controller).<br>
+                     2. The domain logic and data model (the model).<br>
+                     3. The user interface(UI or view).</p>
+                     <p><strong>getValues</strong> is our program entry point as listed first.
+                        It functions to get the input from the event listener and then pass it off to the logic function, 
+                        generateNumbers. Once the return is received it sends it off to the UI function, displayResult.</p>
+                     <p><strong>generateNumbers</strong> generates the numbers to be displayed. Ideally, the determination of whether the number is odd or even should also happen here but to enhance programmatic simplicity it is done in the UI function.</p>
+                     <p><strong>displayResult</strong> uses the modulus operator to calculate whether number is odd or even and then display the result. It uses a loop to generate hmtl and then assigns the result to the DOM property innerHtml.</p>
+                     <p><strong>Event listener: </strong>This is placed directly on the page as is common practice. It can also be placed in the site.js file. It returns the results of the input to the Controller function.</p>
             </div>
          </div>
       </div>

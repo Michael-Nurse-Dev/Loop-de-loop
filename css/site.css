@@ -7,6 +7,7 @@
 
 body{
    color: var(--dark-color);
+   background-color:rgb(131, 179, 179)
 }
 
 nav{
@@ -54,7 +55,6 @@ main>.container {
    width: 100px;  
 }
 
-
 footer .social>a:hover{
    color: red;   
 }
@@ -97,5 +97,14 @@ word-wrap: break-word;
 
 .pacifico-font{
    font-family: 'Pacifico', cursive;
+}
+
+#resultsTable,#codeContainer{
+   margin-bottom: 300px;
+}
+
+.callToAction{
+   background-color: rgb(236,106,3);
+   color: white;
 }
 
